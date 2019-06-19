@@ -1,0 +1,64 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link rel="stylesheet" href="styles/main.css">
+	</head>
+	<body ng-app="angtsAppDev">
+		<!--[if lt IE 7]>
+			<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+		<![endif]-->
+
+		<!--[if lt IE 9]>
+			<script src="bower_components/es5-shim/es5-shim.js"></script>
+			<script src="bower_components/json3/lib/json3.min.js"></script>
+		<![endif]-->
+
+		<div class="container" ng-view></div>
+
+		<!-- script tags in dev, edge-side-includes in prod -->
+		<esi:remove>
+			<script src="config.js"></script>
+			<script src="config_overrides.js"></script>
+		</esi:remove>
+		<!--esi
+		<script>
+			<esi:include src="config.js"/>
+			<esi:include src="config_overrides.js"/>
+		</script>
+		-->
+
+		<!-- build:js(./) scripts/scripts-e2e.js -->
+		<script src="app/bower_components/underscore/underscore.js"></script>
+		<script src="app/bower_components/angular/angular.js"></script>
+		<script src="app/bower_components/angular-route/angular-route.js"></script>
+		<script src="app/bower_components/angular-mocks/angular-mocks.js"></script>
+
+		<!-- if the number of mock data files grows a lot, write a grunt task to package them -->
+
+		<script src="test/mocks/data/tasks.js"></script>
+		<script src="app/scripts/tslib.js"></script>
+		<script src="test/e2e/appTest.js"></script>
+		<!-- endbuild -->
+
+		<script src="app/scripts/templates.js"></script>
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<!-- commenting out until you set up our analytics ID here
+		<script>
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+		-->
+	</body>
+</html>
